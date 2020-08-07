@@ -1,5 +1,5 @@
 #include "qtdll.h"
 
-int __declspec(dllexport) __cdecl add(int a, int b){
+int Q_DECL_EXPORT __cdecl add(int a, int b){
     return a+b;
 }
