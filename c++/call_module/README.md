@@ -1,4 +1,4 @@
-###mac
+#mac
 ```
 nm查看dylib
 ```
