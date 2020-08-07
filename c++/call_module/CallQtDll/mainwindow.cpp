@@ -3,12 +3,11 @@
 
 #include <qmessagebox.h>
 #include <QLibrary>
-#include <dlfcn.h>
 
 #ifdef WIN32
 #include <windows.h>
 #else
-
+#include <dlfcn.h>
 #endif
 
 typedef int (__cdecl *fnadd)(int a, int b);
