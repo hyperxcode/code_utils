@@ -24,7 +24,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>原始调用dll</string>
+     <string>raw call dll</string>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButton_2">
@@ -37,7 +37,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>qt调用dll</string>
+     <string>qt call dll</string>
     </property>
    </widget>
   </widget>
