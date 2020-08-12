@@ -1,4 +1,4 @@
-name: TechMojotvGo
+name: TestGo
 on: push
 jobs:
   build:
