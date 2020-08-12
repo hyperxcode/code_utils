@@ -1,11 +1,18 @@
 package main
-import "testing"
-
+import(
+	"testing"
+	"io/ioutil"
+	"fmt"
+	"net/http"
+	"io"
+	"os"
+	"bytes"
+)
 func TestGithubAction( t *testing.T ){
 	t.Log("test github action")
 }
 
-func TestHttpData( t *testing.T ){
+func TestHttpFuncData( t *testing.T ){
 	for i := 0; i < 10; i++ {
 		res := initData(i, i)
 		if res != i+i {
@@ -17,6 +24,23 @@ func TestHttpData( t *testing.T ){
 	t.Log("test function initData")
 }
 
+func CopyFile(byte []byte, dst string) (w int64, err error) {
+	dstFile, err := os.Create(dst)
+	if err != nil {
+		fmt.Println(err.Error())
+		return
+	}
+	defer dstFile.Close()
+	return io.Copy(dstFile, bytes.NewReader(byte))
+}
+
+func TestHttp( t *testing.T ){
+	res,_ := http.Get("http://127.0.0.1:5678")
+	defer res.Body.Close()
+	body,_ := ioutil.ReadAll(res.Body)
+	CopyFile(body, "download.zip")
+	t.Log("test http")
+}
 
 func TestHttpError( t *testing.T ){
 	t.Error("test http error")

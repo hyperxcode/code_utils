@@ -16,12 +16,15 @@ jobs:
 
       - name: Build
         run: go build ./go/download_zip/
-        
-      - name: List
-        run: ls ./go/download_zip/
 
       - name: Run
-        run: ./go/download_zip/download_zip
+        run: ./download_zip
 
+      - name: List1
+        run: ls ./
+        
       - name: Test
         run: go test -v ./go/download_zip/
+
+      - name: List2
+        run: ls ./
