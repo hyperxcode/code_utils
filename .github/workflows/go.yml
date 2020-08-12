@@ -17,6 +17,9 @@ jobs:
       - name: Build
         run: go build ./go/download_zip/
         
+      - name: List
+        run: ls ./go/download_zip/
+
       - name: Run
         run: ./go/download_zip/download_zip
 
