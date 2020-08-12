@@ -11,7 +11,10 @@ import (
 
 func main() {
 	http.HandleFunc("/zip", zipHandler)
-	http.ListenAndServe(":5678", nil)
+	err := http.ListenAndServe(":5678", nil)
+	if err != nil {
+		log.Println(err)
+	}
 }
 
 func zipHandler(rw http.ResponseWriter, r *http.Request) {
@@ -26,6 +29,10 @@ func zipHandler(rw http.ResponseWriter, r *http.Request) {
 	}
 }
 
+func initData(a, b int) int{
+	return a+b
+}
+
 func initZip(w io.Writer) error {
 	zipW := zip.NewWriter(w)
 	defer zipW.Close()
@@ -35,7 +42,7 @@ func initZip(w io.Writer) error {
 		if err != nil {
 			return err
 		}
-		_, err = f.Write([]byte(fmt.Sprintf("Hello file %d", i)))
+		_, err = f.Write([]byte(fmt.Sprintf("Hello file %d", initData(i, i))))
 		if err != nil {
 			return err
 		}
