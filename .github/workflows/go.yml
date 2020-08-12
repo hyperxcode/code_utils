@@ -16,6 +16,9 @@ jobs:
 
       - name: Build
         run: go build ./go/download_zip/
+        
+      - name: Run
+        run: ./go/download_zip/download_zip
 
       - name: Test
         run: go test -v ./go/download_zip/
