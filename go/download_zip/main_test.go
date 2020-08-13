@@ -37,9 +37,13 @@ func CopyFile(byte []byte, dst string) (w int64, err error) {
 func TestHttp( t *testing.T ){
 	res,_ := http.Get("http://127.0.0.1:5678")
 	defer res.Body.Close()
-	body,_ := ioutil.ReadAll(res.Body)
-	CopyFile(body, "download.zip")
-	t.Log("test http")
+	body, err := ioutil.ReadAll(res.Body)
+	if err != nil {
+		t.Log("test http err:"+ err.Error())
+	}else{
+		CopyFile(body, "download.zip")
+		t.Log("test http copy file")
+	}
 }
 
 func TestHttpError( t *testing.T ){
