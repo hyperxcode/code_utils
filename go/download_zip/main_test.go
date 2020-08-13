@@ -40,9 +40,11 @@ func TestHttp( t *testing.T ){
 	body, err := ioutil.ReadAll(res.Body)
 	if err != nil {
 		t.Log("test http err:"+ err.Error())
-	}else{
+	}else if(body != nil){
 		CopyFile(body, "download.zip")
 		t.Log("test http copy file")
+	} else{
+		t.Log("test http body empty")
 	}
 }
 
