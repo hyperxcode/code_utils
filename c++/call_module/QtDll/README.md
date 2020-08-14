@@ -20,11 +20,21 @@ there have some tools for different platform.
 > mac
 
 * nm
-```
+``` bash
 nm dylib
 ```
 
 * otool
-```
+``` bash
 otool -l xx.dylib
+```
+
+* ar
+``` bash
+ar -v -t xx.a
+```
+
+* lipo
+``` bash
+lipo -info xxx.framework/xxx
 ```
