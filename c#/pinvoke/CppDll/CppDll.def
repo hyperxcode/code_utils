@@ -1,0 +1,6 @@
+LIBRARY CppDll
+
+EXPORTS
+	SetCallback @1
+	InvokeCallback @2
+	Add @3
